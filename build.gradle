@@ -2,11 +2,13 @@ plugins {
 	id 'org.springframework.boot' version '2.3.0.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
 	id 'java'
+	id 'com.google.cloud.tools.jib' version '2.3.0'
 }
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
+jib.to.image = 'gcr.io/pokedex-279415/pokedex-server'
 
 repositories {
 	mavenCentral()
@@ -31,4 +33,12 @@ dependencies {
 
 test {
 	useJUnitPlatform()
+}
+
+tasks.build.dependsOn tasks.jib
+
+jib {
+	to {
+		credHelper = 'gcr'
+	}
 }
