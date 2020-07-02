@@ -5,10 +5,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class PokedexController {
+public class HomeController {
     @CrossOrigin
     @RequestMapping("/")
-    public String pokedex() {
+    public String home() {
         return "Hello World";
     }
 }

@@ -8,11 +8,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
 
 @SpringBootTest(webEnvironment = RANDOM_PORT)
-public class PokedexControllerTest {
-    @Autowired PokedexController controller;
+public class HomeControllerTest {
+    @Autowired
+    HomeController controller;
 
     @Test public void
     returns_greeting() {
-        assertThat(controller.pokedex()).isEqualTo("Hello World");
+        assertThat(controller.home()).isEqualTo("Hello World");
     }
 }
